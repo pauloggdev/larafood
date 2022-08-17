@@ -1,16 +1,19 @@
 @extends('adminlte::page')
-@section('title', "Detalhes do Plano {$plan->name}" )
+@section('title', "Descrição do Plano {$plan->name}" )
 @section('content_header')
 <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{{ route('admin.index')}}">Dashboard</a></li>
     <li class="breadcrumb-item"><a href="{{ route('plans.index')}}">Planos</a></li>
-    <li class="breadcrumb-item active"><a href="{{ route('plans.show', $plan->url)}}">Detalhes</a></li>
+    <li class="breadcrumb-item active"><a href="{{ route('plans.show', $plan->url)}}">Descrição</a></li>
 </ol>
-<h1>Detalhes do plano <b>{{ $plan->name }}</b></h1>
+<h1>Descrição do plano <b>{{ $plan->name }}</b></h1>
 @stop
 @section('content')
+
 <div class="card">
     <div class="card-body">
+    @include('admin.includes.alerts')
+
         <ul>
             <li>
                 <strong>Nome:</strong> {{ $plan->name }}
@@ -28,6 +31,7 @@
         <form method="POST" action="{{ route('plans.destroy', $plan->url)}}">
             @csrf
             @method('DELETE')
+
             <button type="submit" class="btn btn-danger">
             <i class="fas fa-trash"></i>    
 

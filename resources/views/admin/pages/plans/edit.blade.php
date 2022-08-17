@@ -31,9 +31,7 @@
             <div class="form-group">
                 <button type="submit" class="btn btn-dark">Enviar</button>
             </div>
-
          </form>
-
     </div>
   
 </div>
